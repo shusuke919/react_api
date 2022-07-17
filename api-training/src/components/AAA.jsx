@@ -11,12 +11,17 @@ const AAA = ({booksName, getApi}) => {
   } ,[booksName, getApi]);
 
   return (
-   <ul>
-     {bookData?.data.items.map((val, index) => (
-        <li key={index}>{val.volumeInfo.title}</li>
-     ))}
-   </ul>
-     )
+    <ul>
+    {bookData === null ? (
+      <p>now loading...</p>
+    ) : (
+      bookData.data.items.map((x, index) => (
+        <li key={index}>{x.volumeInfo.title}</li>
+      ))
+    )}
+  </ul>
+    
+  )
 }
 
 export default AAA
